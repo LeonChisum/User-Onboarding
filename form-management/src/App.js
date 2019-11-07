@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import AdvForm from './Form';
+import FormikForm from './Form';
 
 function App() {
   return (
     <div className="App">
-      <AdvForm />
+      <h1>User Onboarding</h1>
+      <FormikForm  />
     </div>
   );
 }
