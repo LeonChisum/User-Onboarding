@@ -6,7 +6,7 @@ import FormikForm from './Form';
 function App() {
   return (
     <div className="App">
-      <h1>User Onboarding</h1>
+      <h1 className="Header">User Onboarding</h1>
       <FormikForm  />
     </div>
   );

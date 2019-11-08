@@ -3,6 +3,11 @@ import { Form, withFormik, Field } from 'formik';
 import * as Yup from 'yup';
 import Axios from 'axios';
 
+import { Input, 
+        SubmitButton,
+        StyledDiv,
+        Wrapper } from './styling/styledComponents'
+
 function AdvForm({
     values,
     errors,
@@ -19,36 +24,38 @@ function AdvForm({
     }, [status])
 
     return(
-        <Form>
-            <div>
-                {  touched.name && errors.name && <p>{errors.name}</p> }
-                <Field type="text" name="name" placeholder="Enter Name" />
-            </div>
-            <div>
-                { touched.email && errors.email && <p>{errors.email}</p> }
-                <Field type="email" name="email" placeholder="Email" />
-            </div>
-            <div>
-                { touched.password && errors.password && <p>{errors.password}</p> }
-                <Field type="password" name="password" placeholder="Password" />
-            </div>
-            <div>
+        <Wrapper>
+            <Form>
+                <div>
+                    {  touched.name && errors.name && <p>{errors.name}</p> }
+                    <Input type="text" name="name" placeholder="Enter Name" />
+                </div>
+                <div>
+                    { touched.email && errors.email && <p>{errors.email}</p> }
+                    <Input type="email" name="email" placeholder="Email" />
+                </div>
+                <div>
+                    { touched.password && errors.password && <p>{errors.password}</p> }
+                    <Input type="password" name="password" placeholder="Password" />
+                </div>
+                <div>
+                    <label>
+                        Select a Role: {' '}
+                        <Input component="select" name="role">
+                            <option value="Front-End">Front-End</option>
+                            <option value="Back-End">Back-End</option>
+                            <option value="UX">UX</option>
+                            <option value="Data Science">Data Science</option>
+                        </Input>
+                    </label>
+                </div>
                 <label>
-                    Select a Role: {' '}
-                    <Field component="select" name="role">
-                        <option value="Front-End">Front-End</option>
-                        <option value="Back-End">Back-End</option>
-                        <option value="UX">UX</option>
-                        <option value="Data Science">Data Science</option>
-                    </Field>
-                </label>
-            </div>
-            <label>
-                <Field type="checkbox" name="terms" checked={values.terms} placeholder="Enter Name" />
-                Terms of Service
-            </label>
-            <button disabled={isSubmitting}>Submit</button>
-        </Form>
+                    Terms of Service
+                    <Input type="checkbox" name="terms" checked={values.terms} placeholder="Enter Name" />  
+                </label><br/>
+                <SubmitButton disabled={isSubmitting}>Submit</SubmitButton>
+            </Form>
+        </Wrapper>
     )
 }
 
